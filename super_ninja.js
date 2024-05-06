@@ -14,16 +14,16 @@ class Ninja {
         console.log(
             "Nombre:",
             this.nombre,
-            "Fuerza:",
-            this.fuerza,
+            "Salud:",
+            this.salud,
             "Velocidad:",
             this.velocidad,
-            "Salud:",
-            this.salud
+            "Fuerza:",
+            this.fuerza
         );
     }
 
-    drinkShake() {
+    drinkSake() {
         this.salud += 10;
         console.log("Salud aumentada!");
     }
@@ -33,5 +33,30 @@ const ninja1 = new Ninja("Ricardo", 100, 50, 200);
 
 ninja1.sayName();
 ninja1.showStats();
-ninja1.drinkShake();
+ninja1.drinkSake();
 console.log(ninja1.salud);
+
+class Sensei extends Ninja {
+    constructor(
+        nombre,
+        salud = 200,
+        velocidad = 10,
+        fuerza = 10,
+        sabiduria = 10
+    ) {
+        super(nombre, salud, velocidad, fuerza);
+        this.sabiduria = sabiduria;
+    }
+
+    speakWisdom() {
+        this.drinkSake();
+        console.log(
+            '"Lo que un programador puede hacer en un mes, dos programadores pueden hacerlo en dos meses."'
+        );
+    }
+}
+
+const superSensei = new Sensei("Antonio");
+console.log(superSensei);
+superSensei.speakWisdom();
+superSensei.showStats();
